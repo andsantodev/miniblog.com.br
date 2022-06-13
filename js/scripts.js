@@ -1,5 +1,5 @@
 // page home
-const url = `https://jsonplaceholder.typicode.com/posts`
+const URL = `https://jsonplaceholder.typicode.com/posts`
 const loadingElement = document.querySelector('#loading')
 const postsContainer = document.querySelector('#posts-container')
 
@@ -19,9 +19,8 @@ const postId = urlSearchParams.get('id')
 
 // Get all posts
 async function getAllPosts() {
-  const response = await fetch(url)
+  const response = await fetch(URL)
   const data = await response.json()
-  // console.log(data)
   loadingElement.classList.add('hide')
 
   // go through each element
@@ -47,8 +46,8 @@ async function getAllPosts() {
 // Get individual post
 async function getPost(id) {
   const [responsePost, responseComments] = await Promise.all([
-    fetch(`${url}/${id}`),
-    fetch(`${url}/${id}/comments`)
+    fetch(`${URL}/${id}`),
+    fetch(`${URL}/${id}/comments`)
   ])
   const dataPost = await responsePost.json()
   const dataComments = await responseComments.json()
@@ -70,6 +69,7 @@ async function getPost(id) {
   })
 }
 
+// create comment
 function createComment(comment) {
   const div = document.createElement('div')
   const email = document.createElement('h3')
@@ -85,7 +85,7 @@ function createComment(comment) {
 
 // post a comment
 async function postComment(comment) {
-  const response = await fetch(`${url}/${postId}/comments`, {
+  const response = await fetch(`${URL}/${postId}/comments`, {
     method: "POST",
     body: comment,
     headers:{

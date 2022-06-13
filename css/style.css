@@ -3,9 +3,17 @@
 }
 body{
   padding: 15px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px #00000050;
 }
 .hide{
   display: none;
+}
+#posts-container > div{
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 30px;
 }
 a, input[type="submit"]{
   background-color: #007bff;
